@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import NODE_TYPE from './../TreeType';
+import NODE_TYPE from './../treeType';
 
 export default class TreeNode extends Component {
     constructor(props) {
