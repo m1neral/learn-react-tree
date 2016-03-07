@@ -15,18 +15,20 @@ export default class TreeNode extends Component {
         return this.state.collapsed ? "arrow-down" : "arrow-right";
     }
 
-    // TODO: Recursive here
     getNodeItems() {
-        if (this.state.collapsed)
-            return this.props.node.items.map(item => <div style={{marginLeft: "20px"}} key={item.id}>{item.name}</div>);
+        if (this.state.collapsed && this.props.node.items)
+            return this.props.node.items.map(item => <TreeNode node={item} key={item.id}/>);
     }
 
     render() {
+        let arrowEl = this.props.node.items ?
+            <span className={this.getClassArrowRotate()} onClick={() => this.handleClick()}>▸</span> : null;
+
         return (
-            <div className="node" onClick={() => this.handleClick()}>
-                <span className={this.getClassArrowRotate()}>▸</span>
+            <div className="node">
+                {arrowEl}
                 <span className="node-name"> {this.props.node.name}</span>
-                <div className="node-items">{this.getNodeItems()}</div>
+                <div className="node-items" style={{marginLeft: "20px"}}>{this.getNodeItems()}</div>
             </div>
         );
     }

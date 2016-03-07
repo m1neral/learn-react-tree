@@ -47,5 +47,16 @@ export let treeData = [
             }
 
         ]
+    },
+    {
+        id: 8,
+        name: 'Third node without children',
+        collapsed: true,
+        items: [
+            {
+                id: 9,
+                name: 'I\'am opened node'
+            }
+        ]
     }
 ];
