@@ -60,3 +60,37 @@ export let treeData = [
         ]
     }
 ];
+
+
+export const treeGenerator = (nodesAmount = 1000) => {
+    let nodes = [];
+
+    for (let i = 0; i < nodesAmount; i++) {
+        nodes.push({
+            id: i,
+            name: ('' + i).repeat(3),
+            collapsed: true,
+            items: [
+                {
+                    id: 0,
+                    name: 'One',
+                    collapsed: false
+                },
+                {
+                    id: 1,
+                    name: 'Two',
+                    collapsed: false
+                }
+            ]
+        });
+    }
+
+    return [
+        {
+            id: 'one',
+            name: 'One',
+            collapsed: false,
+            items: nodes
+        }
+    ];
+};

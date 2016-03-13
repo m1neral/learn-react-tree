@@ -4,7 +4,11 @@ import NODE_TYPE from './../treeType';
 export default class TreeNode extends Component {
     constructor(props) {
         super(props);
-        this.state = { collapsed: this.props.node.collapsed }
+        this.state = { collapsed: this.props.node.collapsed };
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextState.collapsed !== this.state.collapsed;
     }
 
     handleClick() {
@@ -15,8 +19,12 @@ export default class TreeNode extends Component {
         return this.state.collapsed ? "arrow-down" : "arrow-right";
     }
 
+    getStyleDisplayValue() {
+        return this.state.collapsed ? "block" : "none";
+    }
+
     getNodeItems() {
-        if (this.state.collapsed && this.props.node.items)
+        if (this.props.node.items)
             return this.props.node.items.map(item => <TreeNode node={item} key={item.id}/>);
     }
 
@@ -28,7 +36,7 @@ export default class TreeNode extends Component {
             <div className="node">
                 {arrowEl}
                 <span className="node-name"> {this.props.node.name}</span>
-                <div className="node-items" style={{marginLeft: "20px"}}>{this.getNodeItems()}</div>
+                <div className="node-items" style={{marginLeft: "20px", display: this.getStyleDisplayValue()}}>{this.getNodeItems()}</div>
             </div>
         );
     }
