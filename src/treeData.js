@@ -3,39 +3,39 @@ export let treeData = [
     {
         id: 0,
         name: 'First top node',
-        collapsed: false,
+        collapsed: true,
         items: [
             {
                 id: 1,
                 name: '1',
-                collapsed: false
+                collapsed: true
             },
             {
                 id: 2,
                 name: '2',
-                collapsed: false
+                collapsed: true
             },
             {
                 id: 3,
                 name: '3',
-                collapsed: false
+                collapsed: true
             }
         ]
     },
     {
         id: 4,
         name: 'Second top node',
-        collapsed: false,
+        collapsed: true,
         items: [
             {
                 id: 5,
                 name: 'Fly',
-                collapsed: false,
+                collapsed: true,
                 items: [
                     {
                         id: 6,
                         name: 'Inner',
-                        collapsed: false
+                        collapsed: true
                     }
                 ]
 
@@ -43,7 +43,7 @@ export let treeData = [
             {
                 id: 7,
                 name: 'High',
-                collapsed: false
+                collapsed: true
             }
 
         ]
@@ -51,7 +51,7 @@ export let treeData = [
     {
         id: 8,
         name: 'Third node without children',
-        collapsed: true,
+        collapsed: false,
         items: [
             {
                 id: 9,
@@ -74,12 +74,12 @@ export const treeGenerator = (nodesAmount = 1000) => {
                 {
                     id: 0,
                     name: 'One',
-                    collapsed: false
+                    collapsed: true
                 },
                 {
                     id: 1,
                     name: 'Two',
-                    collapsed: false
+                    collapsed: true
                 }
             ]
         });
@@ -89,7 +89,7 @@ export const treeGenerator = (nodesAmount = 1000) => {
         {
             id: 'one',
             name: 'One',
-            collapsed: false,
+            collapsed: true,
             items: nodes
         }
     ];

@@ -16,11 +16,11 @@ export default class TreeNode extends Component {
     }
 
     getClassArrowRotate() {
-        return this.state.collapsed ? "arrow-down" : "arrow-right";
+        return this.state.collapsed ? "arrow-right" : "arrow-down";
     }
 
     getStyleDisplayValue() {
-        return this.state.collapsed ? "block" : "none";
+        return this.state.collapsed ? "none" : "block";
     }
 
     getNodeItems() {
